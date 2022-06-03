@@ -2,6 +2,17 @@
 {% load static %}
 
 {% block content %}
-    {{ task.name }}
-    {{ task.description_rendered | safe }}
+    <div class="card">
+        <div class="card-grid">
+
+            <div class="flexy-boi">
+                <div class="card-grid-title" style="font-size: 2rem;">{{ task.name }}</div>
+            </div>
+
+            <div class="card-grid-timestamp" >Created: {{ task.date_created }}</div>
+            <div class="card-grid-timestamp">Needed by: <span class="user">{{ task.needed_by }}</span></div>
+            <div class="card-grid-user">Assigned to: <span class="user">{{ task.assigned_to.username }}</span></div>
+            <div class="card-grid-content">{{ task.description_rendered | safe }}</div>
+        </div>
+    </div>
 {% endblock %}

@@ -4,7 +4,6 @@
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
     background-color: #ddd;
     font-family: 'Open Sans';
 }
@@ -16,7 +15,6 @@ h1,h2,h3,h4 {
 
 .content {
     margin-left: 9rem;
-    /*margin-top: 20px;*/
 }
 
 .sidebar {
@@ -57,4 +55,58 @@ ul,li {
 
 li {
     list-style: none;
+}
+
+.user {
+    color: #375594;
+    cursor: pointer;
+}
+
+.card {
+    margin: 0 auto;
+    width: 50%;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    background-color: #eee;
+    padding: .8rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+        "title date"
+        "user user"
+        "content content";
+    /*    "updates updates";*/
+    grid-gap: 10px;
+}
+
+.card-grid-title {
+    grid-area: title;
+}
+
+.card-grid-timestamp {
+    grid-area: date;
+    margin-left: auto;
+}
+
+.card-grid-user {
+    grid-area: user;
+}
+
+.card-grid-content {
+    grid-area: content;
+    grid-column: 1 / -1;
+}
+
+.flexy-boi {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+hr {
+    width: 100%;
+    box-shadow: 0px 1px 8px black;
+    opacity: 0.2;
 }

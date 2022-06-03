@@ -20,3 +20,15 @@ class Task(models.Model):
     priority = models.CharField(choices=PRIORITY_CHOICES, max_length=28)
     needed_by = models.DateTimeField(null=False, blank=False)
     date_created = models.DateTimeField(auto_now_add=True)
+    completed = models.BooleanField(default=False)
+    date_completed = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.id} | {self.name} | Completed -> {self.completed}"
+
+
+class TaskUpdate(models.Model):
+    poster = models.ForeignKey(Member, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
+    content = MarkdownField(rendered_field="content_rendered", validator=VALIDATOR_STANDARD)
+    marked_as_completed = models.BooleanField(default=False)
